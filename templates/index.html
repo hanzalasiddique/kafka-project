@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Voting App</title>
+</head>
+<body>
+    <h1>Vote for your favorite color:</h1>
+    <form method="post" action="{{ url_for('vote') }}">
+        <label><input type="radio" name="option" value="Red"> Red</label><br>
+        <label><input type="radio" name="option" value="Blue"> Blue</label><br>
+        <label><input type="radio" name="option" value="Green"> Green</label><br>
+        <label><input type="radio" name="option" value="Yellow"> Yellow</label><br>
+        <input type="submit" value="Vote">
+    </form>
+    
+    <h2>Results:</h2>
+    <ul>
+        {% for option, count in votes.items() %}
+            <li>{{ option }}: {{ count }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
